@@ -7,14 +7,14 @@ import (
 )
 
 // Location gg
-type Kid struct {
+type Location struct {
 	ID   int16  `json:"id"`
 	Name string `json:"name"`
 }
 
 type Payl struct {
 	Type string
-	Data []Kid
+	Data Location
 }
 
 func main() {
@@ -23,15 +23,15 @@ func main() {
 
 	forever := make(chan bool)
 
-	err := mClient.init("andrew-mac-ms1")
+	err := mClient.init("andrew-mac-ms2")
 
 	if err != nil {
 		panic(err.Error())
 	}
 
-	mClient.conn.Subscribe("ms1/getLocation/listener", 1, func(c MQTT.Client, m MQTT.Message) {
+	mClient.conn.Subscribe("ms2/getLocation/listener", 1, func(c MQTT.Client, m MQTT.Message) {
 
-		tmp := Payl{"ms1", []Kid{{1, "Jaime"}, {3, "Alex"}}}
+		tmp := Payl{"ms2", Location{2, "Rammstein"}}
 
 		a, _ := json.Marshal(tmp)
 

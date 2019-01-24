@@ -13,7 +13,7 @@ type MessagingBroker struct {
 
 func (mb *MessagingBroker) init(clientID string) error {
 
-	opts := MQTT.NewClientOptions().AddBroker("tcp://192.168.0.3:1883")
+	opts := MQTT.NewClientOptions().AddBroker("tcp://192.168.0.61:1883")
 	opts.SetClientID(clientID)
 
 	mb.conn = MQTT.NewClient(opts)

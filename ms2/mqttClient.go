@@ -22,7 +22,7 @@ func (mb *MessagingBroker) init(clientID string) error {
 		return token.Error()
 	}
 
-	fmt.Println("Connected ms1")
+	fmt.Println("Connected ms2")
 
 	return nil
 
